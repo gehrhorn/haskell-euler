@@ -1,5 +1,5 @@
 triangles :: (Integral x) => x -> x 
-triangles x = sum [1..x]
+triangles x = (x^2 + x) `div` 2
 
 factors :: (Integral x) => x -> [x]
 factors x = [i | i <- [1..x], mod x i == 0]
