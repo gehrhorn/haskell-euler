@@ -1,7 +1,10 @@
-triangles :: (Integral x) => x -> x 
+triangles :: Int -> Int
 triangles x = (x^2 + x) `div` 2
 
-factors :: (Integral x) => x -> [x]
-factors x = [i | i <- [1..x], mod x i == 0]
+numFactors :: (Integral a) => a -> Int
+numFactors x = 2 * length [i | i <- [1..flrSqrt x], mod x i == 0]
 
-trilen  = length . factors . triangles
+
+
+flrSqrt x =  floor $ sqrt $ fromIntegral x
+  
