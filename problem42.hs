@@ -7,10 +7,12 @@ score :: String -> Int
 score str = sum $ map (\a -> ord a - 64) str 
 
 triword :: String -> Bool
-
+triword str = elem y ( triangles y )
+  where y = score str
 
 main = do
   input <- readFile "problem42/words.txt"
   let wordlist = lines input
-  print wordlist
+  let results = filter triword wordlist
+  print ( length $ results )
   return ()
